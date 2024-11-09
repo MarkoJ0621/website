@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>HOMEPAGE</title>
+</head>
+
+<body>
+    <div class="holder">
+        <div id="mainCircle">
+            <div id="close" onclick="closefunc()">X</div>
+            <div id="hoverMe">hover me :3</div>
+            <div style="position: absolute" class="goaway" id="typewriter1">hi......</div>
+            <div style="position: absolute" class="goaway" id="typewriter2">welcome to my website......</div>
+            <div id="description">
+                <h1>Hi! I'm Marko.</h1><br> I'm from Limassol Cyprus, a small island in the mediterranean<br>
+                I'm currently at Berklee College of Music, Majoring Electronic Production and Design with a minor in
+                Creative Coding. <br>
+                I have a huge passion for anything to do with the creation of arts, whether it be designing sounds,
+                engieering, programming or anything else! <br>
+                My current focus is on studying Csound and other sound design tools, and learning how to implement them
+                into various types of media. <br> <br>
+                I also make websites in my spare time.... I hope you like this one :3<br>
+                Feel free to contact me with any questions and inquiries!
+            </div>
+            <div class="clickables" onclick="expand()" href="portofolio page/aboutme.html"
+                style="width: 80px;text-align: center;">about
+                me!</div>
+        </div>
+        <div class="clickables" id="work">my work!
+            <div class="workchild" id="programming">Programming!</div>
+            <div class="workchild" id="sound">Sound Design!</div>
+            <div class="workchild" id="music">Music!</div>
+        </div>
+        <div class="clickables" id="contact"
+            style="width: 80px; text-align: center; height: 90px; display: flex; align-items: center; justify-content: center;">
+            contact me!
+            <a id="insta" class="contactchild" href="https://www.instagram.com/prodstray/" target="_blank">instagram
+            </a>
+            <a href="https://www.linkedin.com/in/marko-jeremic-81a4a3264/" id="linkedin" target="_blank"
+                class="contactchild">linkedin
+            </a>
+            <a href="mailto: markolemesos@gmail.com" id="email" class="contactchild" target="_blank">email</a>
+        </div>
+    </div>
+    <svg id="lines" width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none;">
+        <line id="line1" stroke="white" stroke-width="2" />
+        <line id="line2" stroke="white" stroke-width="2" />
+        <line id="line3" stroke="white" stroke-width="2" />
+    </svg>
+    </div>
+
+    <script>
+        var mainCircle = document.getElementById('mainCircle');
+        var hoverMe = document.getElementById('hoverMe');
+        var clickables = document.getElementsByClassName('clickables');
+        var lines = document.getElementById('lines');
+        var line1 = document.getElementById('line1');
+        var line2 = document.getElementById('line2');
+        var line3 = document.getElementById('line3');
+        let typewriter1 = document.getElementById('typewriter1');
+        let dialogue = document.getElementsByClassName('goaway');
+        let contactchilds = document.getElementsByClassName('contactchild');
+        let workchilds = document.getElementsByClassName('workchild');
+        let close = document.getElementById('close');
+        let typewriterStarted = false;
+        let flag = false;
+        let flagcircle = false;
+        let description = document.getElementById('description');
+        function updateLines() {
+            var rect = mainCircle.getBoundingClientRect();
+            var centerX = rect.left + rect.width / 2;
+            var centerY = rect.top + rect.height / 2;
+
+            for (var i = 0; i < clickables.length; i++) {
+                var clickableRect = clickables[i].getBoundingClientRect();
+                var clickableX = clickableRect.left + clickableRect.width / 2;
+                var clickableY = clickableRect.top + clickableRect.height / 2;
+
+                var line = document.getElementById('line' + (i + 1));
+                line.setAttribute('x1', centerX);
+                line.setAttribute('y1', centerY);
+                line.setAttribute('x2', centerX); // Start x2 at the center
+                line.setAttribute('y2', centerY); // Start y2 at the center
+
+                // Use setTimeout to update x2 and y2 after a short delay
+                setTimeout((function (line, clickableX, clickableY) {
+                    return function () {
+                        line.setAttribute('x2', clickableX);
+                        line.setAttribute('y2', clickableY);
+                    };
+                })(line, clickableX, clickableY), 50); // Delay to trigger transition
+            }
+
+            // After the clickables have fully appeared, fade in the lines
+            setTimeout(function () {
+                for (var i = 0; i < clickables.length; i++) {
+                    var line = document.getElementById('line' + (i + 1));
+                    line.classList.add('visible'); // Fade in the line after 1.5s
+                }
+            }, 100); // Delay this by 1500ms to match the transition time for clickables
+        }
+
+
+        mainCircle.addEventListener('mouseover', function () {
+            if (flagcircle == false) {
+                mainCircle.style.width = '450px';
+                mainCircle.style.height = '450px';
+                mainCircle.zIndex = '3';
+                flagcircle = true;
+                hoverMe.style.fontSize = '0';
+                clickables[0].style.top = '30px';
+                clickables[0].style.left = '500px';
+                clickables[1].style.top = '200px';
+                clickables[1].style.left = '300px';
+                clickables[2].style.top = '700px';
+                for (var i = 0; i < contactchilds.length; i++) {
+                    contactchilds[i].style.opacity = '0';
+                }
+                for (var i = 0; i < clickables.length; i++) {
+                    clickables[i].style.opacity = '1';
+                    clickables[i].style.fontSize = '1.5rem';
+                }
+
+                if (!flag) {
+                    updateLines();
+                    flag = true;
+                }
+                if (!typewriterStarted) {
+                    typewriter1.style.opacity = '1';
+                    typewriter1.style.animationPlayState = 'running';
+                }
+            }
+
+        });
+        function expand() {
+
+            for (var i = 0; i < clickables.length; i++) {
+                clickables[i].style.opacity = '0';
+                var line = document.getElementById('line' + (i + 1));
+                line.classList.add('no-transition');
+                line.classList.remove('visible');
+            }
+            for (var i = 0; i < dialogue.length; i++) {
+                dialogue[i].style.opacity = '0';
+            }
+            mainCircle.style.borderRadius = '0';
+            setTimeout(() => {
+                mainCircle.classList.add('expand');
+            }, 500);
+            close.style.opacity = '1';
+            description.style.opacity = '1';
+        };
+
+        clickables[2].addEventListener('mouseover', function () {
+            for (var i = 0; i < contactchilds.length; i++) {
+                contactchilds[i].style.opacity = '1';
+                contactchilds[i].classList.add('move')
+
+            }
+            console.log('hovered');
+            close.classList.add('visible');
+        });
+        clickables[1].addEventListener('mouseover', function () {
+            for (var i = 0; i < workchilds.length; i++) {
+                workchilds[i].style.opacity = '1';
+                workchilds[i].classList.add('move')
+            }
+
+            close.classList.add('visible');
+        });
+        function closefunc() {
+            for (var i = 0; i < clickables.length; i++) {
+                clickables[i].style.opacity = '1';
+                var line = document.getElementById('line' + (i + 1));
+                line.classList.add('visible');
+            }
+            for (var i = 0; i < dialogue.length; i++) {
+                dialogue[i].style.opacity = '1';
+            }
+            mainCircle.classList.remove('expand');
+            mainCircle.style.borderRadius = '50%';
+            mainCircle.style.width = '400px';
+            mainCircle.style.height = '400px';
+            close.style.opacity = '0';
+            description.style.opacity = '0';
+        }
+    </script>
+
+
+</body>
+
+</html>
