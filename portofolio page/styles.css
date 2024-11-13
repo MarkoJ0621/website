@@ -7,6 +7,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #000000;
+    position: absolute;
 }
 
 .holder {
@@ -18,6 +19,7 @@ body {
     margin: 0;
     padding: 0;
     position: absolute;
+    overflow: hidden;
 }
 
 #mainCircle {
@@ -47,12 +49,13 @@ body {
 /* Define the keyframe animation for expanding */
 @keyframes expandAnimation {
     0% {
-        border-radius: 0%;
+        border-radius: 50%;
         height: 400px;
         width: 400px;
     }
 
     50% {
+        border-radius: 0%;
         height: 100vh;
         /* Expand height first */
         width: 400px;
@@ -61,6 +64,7 @@ body {
     100% {
         height: 100vh;
         width: 100vw;
+        border-radius: 0%;
         /* Expand width after height */
     }
 }
@@ -69,6 +73,20 @@ body {
 .expand {
     animation: expandAnimation 1.5s forwards;
     /* Adjust duration as needed */
+}
+
+.workvideo {
+    height: 40vh;
+    width: 40vw;
+    display: block;
+}
+
+.videonext {
+    margin: 1vw;
+}
+
+.videonext:hover {
+    cursor: pointer;
 }
 
 
@@ -140,6 +158,29 @@ body {
     }
 }
 
+@keyframes shrinkAnimation {
+    0% {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0%;
+    }
+
+    50% {
+        height: 400px;
+        width: 400px;
+    }
+
+    100% {
+        height: 400px;
+        width: 400px;
+        border-radius: 50%;
+    }
+}
+
+.shrink {
+    animation: shrinkAnimation 1.5s forwards;
+    /* Adjust duration to match */
+}
 
 
 .clickables {
@@ -190,8 +231,84 @@ a {
     transition: opacity 0.3s ease 1.5s;
 }
 
+#workclose {
+    position: absolute;
+    top: 1vh;
+    right: 3vw;
+    font-size: 1.5rem;
+    color: aliceblue;
+    opacity: 1;
+    z-index: 3;
+    cursor: pointer;
+    transition: opacity 0.3s ease 1.5s;
+}
+
+.mywork {
+    position: absolute;
+    opacity: 1;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    transition: top 0.4s ease-out, left 0.4s ease-out, opacity 0s, height 1s ease-in-out 0.7s, width 1s ease-in-out 0.7s;
+}
+
+@keyframes expandAnimationWork {
+    0% {
+        border-radius: 0%;
+        height: 5px;
+        width: 5px;
+    }
+
+
+    100% {
+        height: 250vh;
+        width: 100vw;
+
+    }
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expandwork {
+    animation: expandAnimationWork 0.7s ease-out forwards;
+    animation-delay: 1.2s;
+    background-color: #593160;
+    border: 4px solid #fff;
+    padding-top: 5vh;
+}
+
+.worktitle {
+    font-size: 2.5rem;
+    color: aliceblue;
+    text-decoration: underline;
+    opacity: 1;
+    position: absolute;
+}
+
+#worktext {
+    font-size: 1.5rem;
+    color: aliceblue;
+    position: absolute;
+    padding-left: 5vw;
+    height: 150vh;
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease 2s;
+}
+
+
+.worktextright {
+    padding: 1.5vw;
+}
+
 .visible {
-    transition: opacity 0.3s ease-in 0.5s;
+    transition: opacity 1s ease-in 0.5s;
     opacity: 1;
 }
 
@@ -329,4 +446,80 @@ svg line.no-transition {
 #music.move {
     top: 90px;
     left: -60px;
+}
+
+.meters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1vw;
+    background-color: aliceblue;
+    color: #fff;
+    border-radius: 5px;
+    width: 50vw;
+    font-family: Arial, sans-serif;
+}
+
+/* Play/Pause Button */
+#playPauseButton {
+    background-color: black;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+#playPauseButton:hover {
+    background-color: black;
+}
+
+/* Seek and Volume Sliders */
+#seekSlider,
+#volumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: black;
+    outline: none;
+    opacity: 0.8;
+}
+
+#seekSlider::-webkit-slider-thumb,
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.notactive {
+    display: none;
+}
+
+.songdesc {
+    width: 100vw;
+}
+
+.songnext {
+    padding: 1vw
+}
+
+.songnext:hover {
+    cursor: pointer;
 }

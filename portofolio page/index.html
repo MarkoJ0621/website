@@ -5,10 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>HOMEPAGE</title>
 </head>
 
 <body>
+    <div id="mywork">
+        <div id="worktext">
+            <div id="workclose" onclick="workclosefunc()">X</div>
+            <h1 class="worktitle workdesc">Sound Design!</h1> <br> <br> <br>
+            I've spent a lot of time developing my skills in various forms of sound design, mostly to do with music
+            production and commercials.<br>
+            Below are a few different projects I've worked on in various context of sound design. <br> <br>
+            <h3>LYSISTRATA</h3>
+            <div class="box">
+                <i class="fa-solid fa-arrow-left videonext"></i>
+                <video controls class="workvideo" id="vidhold">
+                    <source id="lysvid" src="LYSTRATA CLIP 1.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <i class="fa-solid fa-arrow-right videonext"></i>
+                <div class="worktextright">
+                    Facing West Shadows: Lysistrata is a multi-channel sculptural, cinematic video installation created
+                    by
+                    the artist collective Facing West Shadows.
+                    I had the pleasure of meeting Lydia Greer and YaWen Chien at the beggining of the Summer 2024, where
+                    I
+                    was asked to help work on the audio side of their new installation. <br>
+                    This installation was then displayed at the Memeraki art studio, as well as various other venues
+                    throughout the country. It was truly incredible working with these two talented artists, and I am
+                    honoured to have been a part of this project.<br><br>
+                </div>
+            </div>
+            <br>
+            <h3>PRODUCTION</h3>
+            A lot of my knowledge and experience in sound design comes from time spent producing music. <br>
+            Here are some of my favourites, everything you hear has been fully recorded, produced and mixed by me. <br>
+            <div class="box">
+                <i class="fa-solid fa-arrow-left songnext"></i>
+                <div class="audio-player">
+                    <button id="playPauseButton">▶</i></button>
+                    <div id="meters">
+                        <input type="range" id="seekSlider" value="0" max="100">
+                        <input type="range" id="volumeSlider" value="1" min="0" max="1" step="0.01">
+                    </div>
+                </div>
+                <audio id="audioPlayer" src="CLIP1.wav"></audio>
+                <i class="fa-solid fa-arrow-right songnext"></i>
+                <div class="worktextright songdesc">
+                    This is a track I made for one of my classes at Berklee, featuring Marlon Edlin playing electric
+                    guitar. Inspired by Brian Eno and Robert Fripp, I used the guitar to create a large portion of the
+                    pads and ambience heard throughout. This was made in Logic Pro, mostly using Sculpute, Alchemy
+                    Sampler and various Cabbage Plugins.
+                </div>
+                <div class="worktextright notactive songdesc">
+                    This is another class project, this time only using ES2 in Logic Pro. I wanted to go for a score
+                    that sounded like it could fit within a video game, trying to create intense energy and sound from
+                    what little options I had.
+                </div>
+                <div class="worktextright notactive songdesc">I made this one because i was bored :p, I like to image
+                    mario 64 swimming in the ocean whenever I listen to it.
+                </div>
+            </div>
+            <h1 class="worktitle workdesc">Programming!</h1> <br> <br> <br>
+            I've dedicated a lot of time to various forms of creative coding, mostly in relation to CSound. I am
+            currently working on developing my first commercially available plugin. I'm also studying DSP in C++, hoping
+            to transfer that knowledge into effects design for hardware and software. I also have some experience in
+            basic front-end web design, having built this site all myself! <br> <br>
+            Below are some CSound projects I've created in the past as well as some current projects I'm working on.
+            <br> <br>
+        </div>
+    </div> <!-- CREATE DESCRIPTION ABOUT EACH PROJECT RELATED THING-->
     <div class="holder">
         <div id="mainCircle">
             <div id="close" onclick="closefunc()">X</div>
@@ -21,7 +88,8 @@
                 Creative Coding. <br>
                 I have a huge passion for anything to do with the creation of arts, whether it be designing sounds,
                 engieering, programming or anything else! <br>
-                My current focus is on studying Csound and other sound design tools, and learning how to implement them
+                My current focus is on studying Csound and other sound design tools, and learning how to implement
+                them
                 into various types of media. <br> <br>
                 I also make websites in my spare time.... I hope you like this one :3<br>
                 Feel free to contact me with any questions and inquiries!
@@ -33,24 +101,25 @@
         <div class="clickables" id="work">my work!
             <div class="workchild" id="programming">Programming!</div>
             <div class="workchild" id="sound">Sound Design!</div>
-            <div class="workchild" id="music">Music!</div>
+            <div class="workchild" id="music">Performance!</div>
         </div>
         <div class="clickables" id="contact"
             style="width: 80px; text-align: center; height: 90px; display: flex; align-items: center; justify-content: center;">
             contact me!
-            <a id="insta" class="contactchild" href="https://www.instagram.com/prodstray/" target="_blank">instagram
+            <a href="https://www.instagram.com/prodstray/" id="insta" class="contactchild" target="_blank">instagram
             </a>
             <a href="https://www.linkedin.com/in/marko-jeremic-81a4a3264/" id="linkedin" target="_blank"
                 class="contactchild">linkedin
             </a>
             <a href="mailto: markolemesos@gmail.com" id="email" class="contactchild" target="_blank">email</a>
-        </div>
+        </div> <svg id="lines" width="100%" height="100%"
+            style="position: absolute; top: 0; left: 0; pointer-events: none;">
+            <line id="line1" stroke="white" stroke-width="2" />
+            <line id="line2" stroke="white" stroke-width="2" />
+            <line id="line3" stroke="white" stroke-width="2" />
+        </svg>
     </div>
-    <svg id="lines" width="100%" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none;">
-        <line id="line1" stroke="white" stroke-width="2" />
-        <line id="line2" stroke="white" stroke-width="2" />
-        <line id="line3" stroke="white" stroke-width="2" />
-    </svg>
+
     </div>
 
     <script>
@@ -69,7 +138,13 @@
         let typewriterStarted = false;
         let flag = false;
         let flagcircle = false;
+        let workscreen = document.getElementById('mywork');
         let description = document.getElementById('description');
+        let workdesc = document.getElementsByClassName('workdesc');
+        let nextvideos = document.getElementsByClassName('videonext');
+        let lysvid = document.getElementById('lysvid');
+        let vidhold = document.getElementById('vidhold');
+        let worktext = document.getElementById('worktext');
         function updateLines() {
             var rect = mainCircle.getBoundingClientRect();
             var centerX = rect.left + rect.width / 2;
@@ -83,25 +158,23 @@
                 var line = document.getElementById('line' + (i + 1));
                 line.setAttribute('x1', centerX);
                 line.setAttribute('y1', centerY);
-                line.setAttribute('x2', centerX); // Start x2 at the center
-                line.setAttribute('y2', centerY); // Start y2 at the center
+                line.setAttribute('x2', centerX);
+                line.setAttribute('y2', centerY);
 
-                // Use setTimeout to update x2 and y2 after a short delay
                 setTimeout((function (line, clickableX, clickableY) {
                     return function () {
                         line.setAttribute('x2', clickableX);
                         line.setAttribute('y2', clickableY);
                     };
-                })(line, clickableX, clickableY), 50); // Delay to trigger transition
+                })(line, clickableX, clickableY), 50);
             }
 
-            // After the clickables have fully appeared, fade in the lines
             setTimeout(function () {
                 for (var i = 0; i < clickables.length; i++) {
                     var line = document.getElementById('line' + (i + 1));
-                    line.classList.add('visible'); // Fade in the line after 1.5s
+                    line.classList.add('visible');
                 }
-            }, 100); // Delay this by 1500ms to match the transition time for clickables
+            }, 100);
         }
 
 
@@ -137,7 +210,8 @@
 
         });
         function expand() {
-
+            description.style.transition = '0.3s ease-in-out 2.5s'
+            mainCircle.style.transition = 'border-radius 0.3s, width 0.3s, height 0.3s';
             for (var i = 0; i < clickables.length; i++) {
                 clickables[i].style.opacity = '0';
                 var line = document.getElementById('line' + (i + 1));
@@ -147,7 +221,6 @@
             for (var i = 0; i < dialogue.length; i++) {
                 dialogue[i].style.opacity = '0';
             }
-            mainCircle.style.borderRadius = '0';
             setTimeout(() => {
                 mainCircle.classList.add('expand');
             }, 500);
@@ -172,22 +245,170 @@
 
             close.classList.add('visible');
         });
-        function closefunc() {
-            for (var i = 0; i < clickables.length; i++) {
+        function closefunc() { //TODO FIX WEIRD TRANSITION
+            description.style.transition = 'opacity 0.1s ease-in-out 0s';
+            close.style.transition = 'opacity 0.3s ease-in-out 0s';
+
+            for (let i = 0; i < clickables.length; i++) {
                 clickables[i].style.opacity = '1';
-                var line = document.getElementById('line' + (i + 1));
+                let line = document.getElementById('line' + (i + 1));
                 line.classList.add('visible');
             }
-            for (var i = 0; i < dialogue.length; i++) {
+
+            for (let i = 0; i < dialogue.length; i++) {
                 dialogue[i].style.opacity = '1';
             }
+
             mainCircle.classList.remove('expand');
-            mainCircle.style.borderRadius = '50%';
-            mainCircle.style.width = '400px';
-            mainCircle.style.height = '400px';
+            mainCircle.classList.add('shrink');
+            mainCircle.style.width = '450px';
+            mainCircle.style.height = '450px';
             close.style.opacity = '0';
             description.style.opacity = '0';
+
+            setTimeout(() => {
+                mainCircle.classList.remove('shrink');
+            }, 1500);
         }
+
+
+        for (let i = 0; i < workchilds.length; i++) {
+            workchilds[i].addEventListener('click', function () {
+                const pos = workchilds[i].getBoundingClientRect();
+                worktext.style.transition = 'opacity 0.5s ease 2s';
+                mywork.style.position = 'absolute';
+                mywork.style.left = pos.left + 'px';
+                worktext.style.opacity = '1';
+
+                mywork.animate([
+                    { left: pos.left + 'px', top: pos.top + 'px' },
+                    { left: '0', top: '0' }
+                ], {
+                    duration: 600,
+                    easing: 'ease-out',
+                    fill: 'forwards'
+                });
+                mywork.offsetHeight;
+                mywork.classList.add('expandwork');
+
+                mywork.style.zIndex = '3';
+
+                for (let j = 0; j < clickables.length; j++) {
+                    clickables[j].style.opacity = '0';
+                    var line = document.getElementById('line' + (j + 1));
+                    if (line) {
+                        line.classList.add('no-transition');
+                        line.classList.remove('visible');
+                    }
+                }
+            });
+        }
+        let workclose = document.getElementById('workclose');
+        function workclosefunc() {
+            worktext.style.transition = 'opacity 0.3s ease-in-out 0s';
+            worktext.style.opacity = '0';
+
+            mywork.classList.remove('expandwork');
+            mywork.style.position = ''; // Reset position to default
+            mywork.style.left = '';     // Reset position to default
+            mywork.style.top = '';      // Reset position to default
+            mywork.style.zIndex = '1';
+
+            for (let j = 0; j < clickables.length; j++) {
+                clickables[j].style.opacity = '1';
+                var line = document.getElementById('line' + (j + 1));
+                if (line) {
+                    line.classList.remove('no-transition');
+                    line.classList.add('visible');
+                }
+            }
+        }
+        let counter = 2;
+
+        for (let i = 0; i < nextvideos.length; i++) {
+            nextvideos[i].addEventListener('click', function () {
+                if (i == 0) {
+                    counter--;
+                    if (counter == 0) {
+                        counter = 3;
+                    }
+                    lysvid.src = 'LYSTRATA CLIP ' + counter + '.MP4';
+                } else if (i == 1) {
+                    counter++;
+                    if (counter == 4) {
+                        counter = 1;
+                    }
+                    lysvid.src = 'LYSTRATA CLIP ' + counter + '.MP4';
+                }
+                vidhold.load();
+            });
+        }
+        let songcounter = 0;
+        let songarrows = document.getElementsByClassName('songnext');
+        let songdesc = document.getElementsByClassName('songdesc');
+        for (let i = 0; i < songarrows.length; i++) {
+            songarrows[i].addEventListener('click', function () {
+                if (i == 0) {
+                    songdesc[songcounter].classList.add('notactive');
+                    songcounter--;
+                    if (songcounter == 0) {
+                        songcounter = 2;
+                    }
+                    songdesc[songcounter].classList.remove('notactive');
+                    audioPlayer.src = 'CLIP' + songcounter + '.wav';
+                } else if (i == 1) {
+                    songdesc[songcounter].classList.add('notactive');
+                    songcounter++;
+                    if (songcounter == 3) {
+                        songcounter = 0;
+                    }
+                    songdesc[songcounter].classList.remove('notactive');
+                    audioPlayer.src = 'CLIP' + songcounter + '.wav';
+                }
+                audioPlayer.load();
+                seekSlider.value = 0;
+            });
+
+        }
+        // Select elements
+        const audioPlayer = document.getElementById("audioPlayer");
+        const playPauseButton = document.getElementById("playPauseButton");
+        const seekSlider = document.getElementById("seekSlider");
+        const volumeSlider = document.getElementById("volumeSlider");
+
+        // Toggle play/pause function
+        playPauseButton.addEventListener("click", () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseButton.textContent = "❙❙";
+            } else {
+                audioPlayer.pause();
+                playPauseButton.textContent = "▶";
+            }
+        });
+
+        // Update seek slider as audio plays
+        audioPlayer.addEventListener("timeupdate", () => {
+            if (!isNaN(audioPlayer.duration)) {
+                seekSlider.value = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            }
+        });
+
+        // Seek to position in audio
+        seekSlider.addEventListener("input", () => {
+            audioPlayer.currentTime = (seekSlider.value / 100) * audioPlayer.duration;
+        });
+
+        // Volume control
+        volumeSlider.addEventListener("input", () => {
+            audioPlayer.volume = volumeSlider.value;
+        });
+
+        // Reset play/pause button when audio ends
+        audioPlayer.addEventListener("ended", () => {
+            playPauseButton.textContent = "▶";
+            seekSlider.value = 0;
+        });
     </script>
 
 
